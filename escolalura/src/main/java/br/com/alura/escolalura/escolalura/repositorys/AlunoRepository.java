@@ -13,10 +13,10 @@ import org.bson.codecs.configuration.CodecRegistry;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class AlunoRepository {
-
-    public void salvar(Aluno aluno) {
-
+public class AlunoRepository 
+{
+    public void salvar(Aluno aluno) 
+    {
         Codec<Document> codec = MongoClient.getDefaultCodecRegistry().get(Document.class);
 
         AlunoCodec alunoCodec = new AlunoCodec(codec);
