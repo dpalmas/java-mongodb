@@ -15,27 +15,32 @@ import org.bson.types.ObjectId;
 
 import java.util.Date;
 
-public class AlunoCodec implements CollectibleCodec<Aluno> {
-
+public class AlunoCodec implements CollectibleCodec<Aluno>
+{
     private Codec<Document> codec;
 
-    public AlunoCodec(Codec<Document> codec) {
+    public AlunoCodec(Codec<Document> codec)
+    {
         this.codec = codec;
     }
 
     @Override
-    public Aluno generateIdIfAbsentFromDocument(Aluno aluno) {
+    public Aluno generateIdIfAbsentFromDocument(Aluno aluno)
+    {
         return documentHasId(aluno) ? aluno.criarId() : aluno;
     }
 
     @Override
-    public boolean documentHasId(Aluno aluno) {
+    public boolean documentHasId(Aluno aluno)
+    {
         return aluno.getId() == null;
     }
 
     @Override
-    public BsonValue getDocumentId(Aluno aluno) {
-        if (!documentHasId(aluno)) {
+    public BsonValue getDocumentId(Aluno aluno)
+    {
+        if (!documentHasId(aluno))
+        {
             throw new IllegalStateException("Esse Document não tem id");
         }
 
@@ -43,12 +48,14 @@ public class AlunoCodec implements CollectibleCodec<Aluno> {
     }
 
     @Override
-    public Aluno decode(BsonReader bsonReader, DecoderContext decoderContext) {
+    public Aluno decode(BsonReader bsonReader, DecoderContext decoderContext)
+    {
         return null;
     }
 
     @Override
-    public void encode(BsonWriter writer, Aluno aluno, EncoderContext encoder) {
+    public void encode(BsonWriter writer, Aluno aluno, EncoderContext encoder)
+    {
         ObjectId id = aluno.getId();
         String nome = aluno.getNome();
         Date dataNascimento = aluno.getDataNascimento();
@@ -65,7 +72,8 @@ public class AlunoCodec implements CollectibleCodec<Aluno> {
     }
 
     @Override
-    public Class<Aluno> getEncoderClass() {
+    public Class<Aluno> getEncoderClass()
+    {
         return Aluno.class;
     }
 }
