@@ -1,23 +1,27 @@
 package br.com.alura.escolalura.escolalura.models;
 
-public class Habilidade {
-
+public class Habilidade 
+{
     private String nome;
     private String nivel;
 
-    public String getNome() {
+    public String getNome() 
+    {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome) 
+    {
         this.nome = nome;
     }
 
-    public String getNivel() {
+    public String getNivel() 
+    {
         return nivel;
     }
 
-    public void setNivel(String nivel) {
+    public void setNivel(String nivel) 
+    {
         this.nivel = nivel;
     }
 }
