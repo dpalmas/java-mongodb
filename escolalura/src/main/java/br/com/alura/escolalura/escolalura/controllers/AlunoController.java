@@ -10,19 +10,21 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class AlunoController {
-
+public class AlunoController 
+{
     @Autowired
     private AlunoRepository repository;
 
     @GetMapping("/aluno/cadastrar")
-    public String cadastrar(Model model) {
+    public String cadastrar(Model model) 
+    {
         model.addAttribute("aluno", new Aluno());
         return "/aluno/cadastrar";
     }
 
     @PostMapping("/aluno/salvar")
-    public String salvar(@ModelAttribute Aluno aluno) {
+    public String salvar(@ModelAttribute Aluno aluno) 
+    {
         System.out.println("Aluno para salvar: " + aluno);
         repository.salvar(aluno);
         return "redirect:/";
